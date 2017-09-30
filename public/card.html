@@ -1,0 +1,154 @@
+<!-- index.html -->
+
+<!doctype html>
+<html>
+
+<head>
+    <title>Adding the credit card details</title>
+    <link rel="stylesheet" href="scripts/bootstrap/dist/css/bootstrap.min.css">
+    <!-- load bootstrap via NODEMODULE -->
+
+    <script src="scripts/jquery/dist/jquery.min.js"></script>
+    <!-- load jquery via NODEMODULE -->
+    <script src="./assets/scripts/form.js"></script>
+    <!-- load form javascript file -->
+
+    <link rel="stylesheet" href="assets/styles/style.css">
+</head>
+
+<body>
+    <div class="col-sm-6 col-sm-offset-3">
+
+        <h1>Adding the credit card details</h1>
+
+        <!-- OUR FORM -->
+        <form>
+
+            <!-- CARD NAME -->
+            <div id="name-group" class="form-group">
+                <label for="cardName">Credit Card Name</label>
+                <select name="cardName" id="cardName" class="form-control">
+                    <option value="maybank">Maybank</option>
+                    <option value="hsbc">HSBC</option>
+                    <option value="citibank">Citibank</option>
+                    <option value="ocbc">OCBC</option>
+                    <option value="cimb">CIMB</option>
+                </select>
+                <!-- errors will go here -->
+            </div>
+
+            <!-- CARD NAME -->
+            <div id="type-group" class="form-group">
+                    <label for="cardType">Credit Card Type</label>
+                    <select name="cardType" id="cardType" class="form-control">
+                        <option value="visa">Visa</option>
+                        <option value="mastercard">Mastercard</option>
+                        <option value="amex">amex</option>
+                    </select>
+                    <!-- errors will go here -->
+                </div>
+
+
+            <div class="form-group">
+                <div class="benefits">Cashback</div>
+                <label>
+                    Yes
+                    <input type="radio" name="cashback" value="yes" checked>
+                </label>
+                <label>
+                    No
+                    <input type="radio" name="cashback" value="no">
+                </label>
+            </div>
+
+            <div class="form-group">
+                    <div class="benefits">Balance Transfer</div>
+                <label>
+                    Yes
+                    <input type="radio" name="balancetransfer" value="yes" checked>
+                </label>
+                <label>
+                    No
+                        <input type="radio" name="balancetransfer" value="no">
+                    </label>
+            </div>
+
+            <div class="form-group">
+                    <div class="benefits">Easy Payment Plan</div>
+                <label>
+                        Yes
+                        <input type="radio" name="easypp" value="yes" checked>
+                    </label>
+                <label>
+                        No
+                            <input type="radio" name="easypp" value="no">
+                        </label>
+            </div>
+
+            <div class="form-group">
+                    <div class="benefits">Foreigners Allowed</div>
+                    <label>
+                        Yes
+                        <input type="radio" name="foreignerAllowed" id="foreignerAllowed" value="yes" checked>
+                    </label>
+                    <label>
+                        No
+                        <input type="radio" name="foreignerAllowed" id="foreignerAllowed" value="no">
+                    </label>
+                </div>
+
+                <input type="radio" name="gender" value="male" checked> Male<br>
+                <input type="radio" name="gender" value="female"> Female<br>
+                <input type="radio" name="gender" value="other"> Other
+
+                <div class="form-group">
+                        <div class="benefits">Suitable for<div>
+                        <div>Petrol</div>
+                            <label>
+                                Yes
+                                <input type="radio" name="petrol" value="yes" checked>
+                            </label>
+                            <label>
+                                No
+                                <input type="radio" name="petrol" value="no">
+                            </label>
+                          
+                        <div>Travel</div>
+                        <label>
+                                Yes
+                                <input type="radio" name="travel" value="yes" checked>
+                            </label>
+                            <label>
+                                No
+                                <input type="radio" name="travel" value="no">
+                            </label>
+                               
+                    </div>
+
+                    <div class="form-group">
+                        <div class="benefits">Annual Fee</div>
+                        <label>
+                            Yes
+                            <input type="radio" name="annualfee" value="yes" checked>
+                        </label>
+                        <label>
+                        No
+                            <input type="radio" name="annualfee" value="no">
+                        </label>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="benefits">Salary Range</div>
+                        <input type="range" class="form-control"  name="salaryrange" id="salaryrange">
+                        <input type="text" class="form-control getSalaryVal" name="salaryrangeVal" id="salaryrangeVal">
+                    </div>
+
+           
+            <button type="submit" class="btn btn-success">Submit <span class="fa fa-arrow-right"></span></button>
+
+        </form>
+
+    </div>
+</body>
+
+</html>

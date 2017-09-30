@@ -1,0 +1,69 @@
+{
+  "cards": [
+    {
+      "cardname": "maybank",
+      "cardtype": "visa",
+      "cashback": "no",
+      "balancetransfer": "no",
+      "easypayment": "yes",
+      "foreignerAllowed": "yes",
+      "petrol": "no",
+      "travel": "yes",
+      "annualfee": "no",
+      "salaryrange": "17000",
+      "id": 1
+    },
+    {
+      "cardname": "maybank",
+      "cardtype": "mastercard",
+      "cashback": "yes",
+      "balancetransfer": "no",
+      "easypayment": "yes",
+      "foreignerAllowed": "yes",
+      "petrol": "yes",
+      "travel": "no",
+      "annualfee": "no",
+      "salaryrange": "70000",
+      "id": 2
+    },
+    {
+      "cardname": "maybank",
+      "cardtype": "mastercard",
+      "cashback": "no",
+      "balancetransfer": "no",
+      "easypayment": "no",
+      "foreignerAllowed": "no",
+      "petrol": "yes",
+      "travel": "no",
+      "annualfee": "no",
+      "salaryrange": "75000",
+      "id": 3
+    },
+    {
+      "cardname": "hsbc",
+      "cardtype": "visa",
+      "cashback": "yes",
+      "balancetransfer": "yes",
+      "easypayment": "yes",
+      "foreignerAllowed": "yes",
+      "petrol": "yes",
+      "travel": "yes",
+      "annualfee": "yes",
+      "salaryrange": "42000",
+      "id": 4
+    },
+    {
+      "cardname": "hsbc",
+      "cardtype": "mastercard",
+      "cashback": "no",
+      "balancetransfer": "yes",
+      "easypayment": "yes",
+      "foreignerAllowed": "yes",
+      "petrol": "no",
+      "travel": "no",
+      "annualfee": "yes",
+      "salaryrange": "54000",
+      "id": 5
+    }
+  ]
+}

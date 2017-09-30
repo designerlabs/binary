@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Credit card Bot</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="assets/styles/style.css">
+        <script src="scripts/jquery/dist/jquery.min.js"></script>
+        <script src="assets/scripts/questions.json"></script>
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+        <h1 class="questions">How can I help you ?</h1>
+        <div class="answerContainer" style="visibility:hidden;">
+            <input class="answerBox" type="text">
+            <div class="error"></div>
+        </div>
+
+        <div class="buttonContainer">
+                <button class="startBtn">
+                    Let's Go
+                </button>
+                <button class="submitBtn" style="display:none;">
+                    submit
+                </button>
+        </div>
+
+
+        
+       <div class="results">
+        <ul>
+
+        </ul>
+       </div>
+
+        <script>
+            $(function(){
+                var count = 0;
+                var ques = 0;
+                var ansOpt = [
+                    ['yes', 'no', 'malaysia'],
+                    ['yes', 'no', 'i prefer', 'don\'t want'],
+                    ['yes', 'no', 'i prefer', 'don\'t want'],
+                    ['yes', 'no', 'i prefer', 'don\'t want'],
+                    ['yes', 'no', 'i prefer', 'don\'t want'],
+                    ['yes', 'no', 'i prefer', 'don\'t want'],
+                    ['yes', 'no', 'i prefer', 'don\'t want']
+
+                ];
+
+                var questions = ['start','foreignerAllowed','cashback','balancetransfer', 'easypayment', 'petrol', 'travel', 'annualfee', 'salaryrange']
+                var options = [];
+                 var getQuestion = function(i){
+                    $.getJSON( "assets/scripts/questions.json", function( json ) {
+                        $(".questions").html(json.questions[i]);
+                    });
+                }
+
+                getQuestion(0);
+
+                $(".startBtn").click(function(){
+                    $(".startBtn").css('display','none');
+                    $(".submitBtn").css('display','inline');
+                    $(".answerContainer").css('visibility','visible');
+                    count++;
+                    getQuestion(parseInt(count));
+    
+                });
+                
+                $(".submitBtn").click(function(){
+                    count++;
+                    ques++;
+
+                    if($('.answerBox').val() == "i prefer" || $('.answerBox').val() == "malaysia"){
+                        $('.answerBox').val('yes');
+                    }else if($('.answerBox').val() == "don't want"){
+                        $('.answerBox').val('no');
+                    };
+
+                    options.push(questions[ques]+'='+$('.answerBox').val());
+                    $(".answerBox").val('');
+                    getQuestion(parseInt(count));
+                    getResult(options.join('&'));
+                    console.log(options);
+                });
+
+                $(".answerBox").keyup(function(){
+                    console.log(count)
+                    console.log($(this).val());
+                    if(ansOpt[ques].indexOf($(this).val()) > -1 || $(this).val() == ''){
+                        $(".error").html('');
+                        $('.submitBtn').show();
+                    }else{
+                        $(".error").html('Please enter either '+ (ansOpt[ques].join(', ')).toUpperCase());
+                        $('.submitBtn').hide();
+                    }
+                })
+
+
+                var getResult = function(query){
+                    $(".results ul").html('');
+                    $.get("http://localhost:3000/cards/?"+query, function( data ) {
+                        console.log(data)
+                        $.each(data, function(i, k){
+                            console.log(k);
+                            $('.results ul').append("<li class='cardName'>"+k.cardname+"</li>");
+                        });
+                     });
+                }
+                
+            });
+
+
+
+       
+        </script>
+        
+    </body>
+</html>
